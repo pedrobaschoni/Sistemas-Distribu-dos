@@ -1,0 +1,21 @@
+body {
+    background-color: #f0f0f0;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilizando o cabeçalho (header) */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilizando o título principal */
+h1 {
+    font-size: 2em;
+    margin: 0;
+}

@@ -1,0 +1,2 @@
+protoc --go_out=./src --go-grpc_out=./src -I=. validation.proto
+python -m grpc_tools.protoc -I=. --python_out=. --grpc_python_out=. validation.proto

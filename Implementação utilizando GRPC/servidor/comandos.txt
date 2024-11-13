@@ -1,0 +1,5 @@
+source /home/pedro/Downloads/trabalho\ -\ SID\ Pedro\ Lucas/myenv/bin/activate
+cd /home/pedro/Downloads/trabalho\ -\ SID\ Pedro\ Lucas/servidor
+python3 servidor.py
+go run cliente.go
+

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package validation;
+
+service ValidationService {
+    rpc ValidateCPF(ValidationRequest) returns (ValidationResponse);
+    rpc ValidateCNPJ(ValidationRequest) returns (ValidationResponse); 
+}
+
+message ValidationRequest {
+    string value = 1; 
+}
+
+message ValidationResponse {
+    string result = 1;
+}
+

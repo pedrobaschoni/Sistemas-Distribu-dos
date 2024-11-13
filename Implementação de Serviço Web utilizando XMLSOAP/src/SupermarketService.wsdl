@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://www.example.com/supermarket" 
+  targetNamespace="http://www.example.com/supermarket">
+
+  <message name="GetProductsByNameRequest">
+    <part name="nome" type="xsd:string"/>
+  </message>
+
+  <message name="GetProductsByPriceRequest">
+    <part name="preco" type="xsd:float"/>
+  </message>
+
+  <message name="GetProductsByCategoryRequest">
+    <part name="categoria" type="xsd:string"/>
+  </message>
+
+  <message name="GetProductsResponse">
+    <part name="products" type="tns:Product" maxOccurs="unbounded"/>
+  </message>
+
+  <complexType name="Product">
+    <sequence>
+      <element name="nome" type="xsd:string"/>
+      <element name="preco" type="xsd:float"/>
+      <element name="categoria" type="xsd:string"/>
+    </sequence>
+  </complexType>
+
+  <portType name="SupermarketPortType">
+    <operation name="getProductsByName">
+      <input message="tns:GetProductsByNameRequest"/>
+      <output message="tns:GetProductsResponse"/>
+    </operation>
+    <operation name="getProductsByPrice">
+      <input message="tns:GetProductsByPriceRequest"/>
+      <output message="tns:GetProductsResponse"/>
+    </operation>
+    <operation name="getProductsByCategory">
+      <input message="tns:GetProductsByCategoryRequest"/>
+      <output message="tns:GetProductsResponse"/>
+    </operation>
+  </portType>
+
+  <binding name="SupermarketBinding" type="tns:SupermarketPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getProductsByName">
+      <input>
+        <soap:body use="encoded" namespace="tns" encodingStyle="http://schemas.xmlsoap.org/soap/encoding"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="tns" encodingStyle="http://schemas.xmlsoap.org/soap/encoding"/>
+      </output>
+    </operation>
+    <operation name="getProductsByPrice">
+      <input>
+        <soap:body use="encoded" namespace="tns" encodingStyle="http://schemas.xmlsoap.org/soap/encoding"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="tns" encodingStyle="http://schemas.xmlsoap.org/soap/encoding"/>
+      </output>
+    </operation>
+    <operation name="getProductsByCategory">
+      <input>
+        <soap:body use="encoded" namespace="tns" encodingStyle="http://schemas.xmlsoap.org/soap/encoding"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="tns" encodingStyle="http://schemas.xmlsoap.org/soap/encoding"/>
+      </output>
+    </operation>
+  </binding>
+
+  <service name="SupermarketService">
+    <port name="SupermarketPort" binding="tns:SupermarketBinding">
+      <soap:address location="http://localhost:8000/SupermarketService"/>
+    </port>
+  </service>
+
+</definitions>

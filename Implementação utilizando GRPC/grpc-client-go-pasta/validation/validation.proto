@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package validation;
+
+option go_package = "grpc-client-go/validation;validation";
+
+service ValidationService {
+    rpc ValidateCPF(ValidationRequest) returns (ValidationResponse);
+    rpc ValidateCNPJ(ValidationRequest) returns (ValidationResponse);
+}
+
+message ValidationRequest {
+    string value = 1; 
+}
+
+message ValidationResponse {
+    string result = 1;
+}
+
